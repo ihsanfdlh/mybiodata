@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html class="dark scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ALEX.DEV - Digital Architect</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500&amp;family=Sora:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface": "#10131b",
+                      "primary": "#adc6ff",
+                      "on-surface-variant": "#c1c6d7",
+                      "surface-variant": "#31353d",
+                      "secondary-fixed-dim": "#c8c6c5",
+                      "on-primary-fixed-variant": "#004493",
+                      "on-error": "#690005",
+                      "surface-bright": "#363942",
+                      "surface-container-lowest": "#0b0e16",
+                      "secondary-container": "#474746",
+                      "on-tertiary": "#571e00",
+                      "surface-container-high": "#272a32",
+                      "surface-dim": "#10131b",
+                      "primary-fixed-dim": "#adc6ff",
+                      "on-secondary-container": "#b7b5b4",
+                      "inverse-on-surface": "#2d3039",
+                      "inverse-primary": "#005bc1",
+                      "on-tertiary-fixed": "#351000",
+                      "error": "#ffb4ab",
+                      "primary-fixed": "#d8e2ff",
+                      "error-container": "#93000a",
+                      "tertiary-fixed": "#ffdbcc",
+                      "on-error-container": "#ffdad6",
+                      "on-primary-fixed": "#001a41",
+                      "surface-container": "#1c2028",
+                      "surface-container-highest": "#31353d",
+                      "on-tertiary-container": "#4c1a00",
+                      "background": "#10131b",
+                      "on-secondary": "#313030",
+                      "on-tertiary-fixed-variant": "#7c2e00",
+                      "tertiary-fixed-dim": "#ffb595",
+                      "secondary-fixed": "#e5e2e1",
+                      "inverse-surface": "#e0e2ed",
+                      "secondary": "#c8c6c5",
+                      "on-secondary-fixed-variant": "#474746",
+                      "outline": "#8b90a0",
+                      "surface-tint": "#adc6ff",
+                      "surface-container-low": "#181c23",
+                      "on-background": "#e0e2ed",
+                      "primary-container": "#4b8eff",
+                      "on-surface": "#e0e2ed",
+                      "tertiary-container": "#ef6719",
+                      "tertiary": "#ffb595",
+                      "outline-variant": "#414755",
+                      "on-primary-container": "#00285c",
+                      "on-secondary-fixed": "#1c1b1b",
+                      "on-primary": "#002e69"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "0px"
+              },
+              "spacing": {
+                      "gutter": "24px",
+                      "xs": "8px",
+                      "base": "4px",
+                      "container-max": "1280px",
+                      "lg": "48px",
+                      "xl": "80px",
+                      "sm": "16px",
+                      "md": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Sora"
+                      ],
+                      "headline-xl": [
+                              "Sora"
+                      ],
+                      "headline-lg-mobile": [
+                              "Sora"
+                      ],
+                      "body-lg": [
+                              "Geist"
+                      ],
+                      "body-md": [
+                              "Geist"
+                      ],
+                      "headline-lg": [
+                              "Sora"
+                      ],
+                      "label-mono": [
+                              "Geist"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "1.4",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "headline-xl": [
+                              "64px",
+                              {
+                                      "lineHeight": "1.1",
+                                      "letterSpacing": "-0.04em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "headline-lg-mobile": [
+                              "32px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-lg": [
+                              "18px",
+                              {
+                                      "lineHeight": "1.6",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "body-md": [
+                              "16px",
+                              {
+                                      "lineHeight": "1.5",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "40px",
+                              {
+                                      "lineHeight": "1.2",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-mono": [
+                              "14px",
+                              {
+                                      "lineHeight": "1.0",
+                                      "letterSpacing": "0.1em",
+                                      "fontWeight": "500"
+                              }
+                      ]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s cubic-bezier(0.19, 1, 0.22, 1), transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .mechanical-transition {
+            transition: all 0.15s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background-color: rgba(10, 10, 10, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md overflow-x-hidden antialiased">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/80 dark:bg-surface/80 backdrop-blur-xl border-b border-outline-variant">
+<div class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-16">
+<div class="font-headline-md text-headline-md font-bold tracking-tighter text-on-surface">ALEX.DEV</div>
+<div class="hidden md:flex gap-sm">
+<a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-mono text-label-mono" href="#bio">Bio</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-150 ease-out font-label-mono text-label-mono" href="#skills">Skills</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-150 ease-out font-label-mono text-label-mono" href="#work">Work</a>
+<a class="text-on-surface-variant font-medium hover:text-primary transition-colors duration-150 ease-out font-label-mono text-label-mono" href="#contact">Contact</a>
+</div>
+<button class="bg-[#007AFF] text-white font-label-mono text-label-mono px-md py-xs uppercase tracking-widest mechanical-transition hover:bg-white hover:text-[#007AFF] hidden md:block">
+                Hire Me
+            </button>
+</div>
+</nav>
+<main class="max-w-container-max mx-auto px-gutter pt-32 pb-xl">
+<!-- Hero Section -->
+<section class="min-h-[80vh] flex flex-col md:flex-row items-center justify-center gap-lg border-b border-outline-variant pb-xl mb-xl fade-in-up" id="bio">
+<div class="w-full md:w-1/2 flex justify-center">
+<div class="relative w-64 h-64 md:w-96 md:h-96 border border-[#333333] p-xs bg-[#111111]">
+<img alt="Alex" class="w-full h-full object-cover grayscale hover:grayscale-0 mechanical-transition" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBgydwnfcJE5RDpfRark_Th5uomRyu6wT-CAqpKqH_aMUmCoyAHsaa5zenQrBf6ywwrLE0CPBnJ8Xb2it2gvL7nwRNHl1Ny0B3Pav2CwmKvRrbnYisb-u3za4iWGX5ZfUsF_ozqiQxBdSuW9JCkg6VJBrKRushHWmivMg0S7wdYb-qt27VUogfmnPEd2WgSkfoywr21EWyxzraXBw-bp77Opllrk6RztNw6RArIGrCYo1ZH2lBVlxToAw"/>
+<div class="absolute -bottom-4 -right-4 bg-[#1A1A1A] border border-[#333333] px-sm py-xs font-label-mono text-label-mono text-on-surface">
+                        SYS_STATUS: ONLINE
+                    </div>
+</div>
+</div>
+<div class="w-full md:w-1/2 flex flex-col gap-sm">
+<p class="font-label-mono text-label-mono text-primary uppercase tracking-widest">Initialization Sequence</p>
+<h1 class="font-headline-lg-mobile md:font-headline-xl text-headline-lg-mobile md:text-headline-xl text-on-surface">Halo, Saya Alex.</h1>
+<h2 class="font-headline-md text-headline-md text-on-surface-variant">Digital Architect &amp; Creative Problem Solver</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl mt-sm">
+                    Engineering precision meets experimental aesthetics. I build robust digital structures with an uncompromising focus on performance and architectural integrity.
+                </p>
+<div class="mt-md">
+<a class="inline-block border border-[#333333] bg-transparent text-on-surface font-label-mono text-label-mono px-md py-sm uppercase tracking-widest mechanical-transition hover:bg-[#007AFF] hover:border-[#007AFF] hover:text-white" href="#contact">
+                        Initialize Contact <span class="material-symbols-outlined align-middle ml-xs text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- About / Details Section -->
+<section class="border-b border-outline-variant pb-xl mb-xl fade-in-up">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+<div>
+<h3 class="font-headline-lg text-headline-lg mb-md">System Architecture</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-sm">
+                        My approach to digital design is deeply rooted in structuralism. Every line of code, every pixel placement is a calculated decision designed to enhance the overall stability and performance of the application.
+                    </p>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                        I reject superfluous ornamentation in favor of stark, functional beauty. The UI is a terminal interface for human-computer interaction, demanding clarity and speed above all else.
+                    </p>
+</div>
+<div class="bg-[#111111] border border-[#1A1A1A] p-md">
+<div class="font-label-mono text-label-mono text-on-surface-variant border-b border-[#333333] pb-xs mb-sm">Terminal Log</div>
+<ul class="space-y-xs font-label-mono text-label-mono text-primary">
+<li>&gt; Loading core modules... [OK]</li>
+<li>&gt; Establishing aesthetic parameters: Experimental Minimalist [OK]</li>
+<li>&gt; Defining geometry: Sharp corners, rigid grid [OK]</li>
+<li>&gt; Boot sequence complete. Awaiting input.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- Skills Section -->
+<section class="border-b border-outline-variant pb-xl mb-xl fade-in-up" id="skills">
+<h3 class="font-headline-lg text-headline-lg mb-lg">Technical Competencies</h3>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+<!-- Skill Card 1 -->
+<div class="bg-[#111111] border border-[#1A1A1A] p-md hover:border-[#007AFF] mechanical-transition group">
+<div class="flex justify-between items-start mb-md">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary mechanical-transition">code</span>
+<span class="font-label-mono text-label-mono text-[#333333]">01</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-xs">Frontend Dev</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Architecting responsive, high-performance user interfaces using modern frameworks.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">REACT</span>
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">TS</span>
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">TAILWIND</span>
+</div>
+</div>
+<!-- Skill Card 2 -->
+<div class="bg-[#111111] border border-[#1A1A1A] p-md hover:border-[#007AFF] mechanical-transition group">
+<div class="flex justify-between items-start mb-md">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary mechanical-transition">design_services</span>
+<span class="font-label-mono text-label-mono text-[#333333]">02</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-xs">UI/UX Design</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Crafting stark, brutalist-inspired user experiences focused on functional efficiency.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">FIGMA</span>
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">WIREFRAMING</span>
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">PROTOTYPING</span>
+</div>
+</div>
+<!-- Skill Card 3 -->
+<div class="bg-[#111111] border border-[#1A1A1A] p-md hover:border-[#007AFF] mechanical-transition group">
+<div class="flex justify-between items-start mb-md">
+<span class="material-symbols-outlined text-4xl text-on-surface-variant group-hover:text-primary mechanical-transition">architecture</span>
+<span class="font-label-mono text-label-mono text-[#333333]">03</span>
+</div>
+<h4 class="font-headline-md text-headline-md mb-xs">Project Mgmt</h4>
+<p class="font-body-md text-body-md text-on-surface-variant mb-md">Orchestrating complex digital deployments with rigid adherence to timelines and scope.</p>
+<div class="flex flex-wrap gap-xs">
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">AGILE</span>
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">JIRA</span>
+<span class="bg-[#1A1A1A] text-on-surface font-label-mono text-[10px] px-2 py-1 tracking-widest">SCRUM</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Timeline Section -->
+<section class="border-b border-outline-variant pb-xl mb-xl fade-in-up" id="work">
+<h3 class="font-headline-lg text-headline-lg mb-lg">Execution History</h3>
+<div class="relative border-l border-[#333333] ml-xs md:ml-md pl-md md:pl-lg space-y-lg">
+<!-- Timeline Item 1 -->
+<div class="relative">
+<div class="absolute -left-[1.6rem] md:-left-[3.1rem] top-1 w-3 h-3 bg-[#111111] border border-[#007AFF]"></div>
+<div class="font-label-mono text-label-mono text-primary mb-xs">2021 - PRESENT</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">Lead Frontend Architect</h4>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium mb-xs">Nexus Core Systems</p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Spearheaded the redesign of enterprise legacy systems into a unified, high-performance web application suite. Reduced load times by 40%.</p>
+</div>
+<!-- Timeline Item 2 -->
+<div class="relative">
+<div class="absolute -left-[1.6rem] md:-left-[3.1rem] top-1 w-3 h-3 bg-[#111111] border border-[#333333]"></div>
+<div class="font-label-mono text-label-mono text-on-surface-variant mb-xs">2018 - 2021</div>
+<h4 class="font-headline-md text-headline-md text-on-surface">UI/UX Engineer</h4>
+<p class="font-body-md text-body-md text-on-surface-variant font-medium mb-xs">Void Dynamics</p>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-2xl">Developed and maintained component libraries. Bridged the gap between design conceptualization and technical implementation.</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer / Contact Section -->
+<footer class="w-full bg-surface-container-lowest border-t border-outline-variant" id="contact">
+<div class="flex flex-col md:flex-row justify-between items-center py-xl px-gutter max-w-container-max mx-auto gap-md md:gap-0">
+<div class="font-headline-md text-headline-md text-on-surface font-bold tracking-tighter">ALEX.DEV</div>
+<div class="flex gap-md font-label-mono text-label-mono">
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-150 uppercase tracking-widest" href="#">Email</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-150 uppercase tracking-widest" href="#">LinkedIn</a>
+<a class="text-on-surface-variant hover:text-on-surface transition-colors duration-150 uppercase tracking-widest" href="#">GitHub</a>
+</div>
+<div class="font-label-mono text-label-mono text-on-surface-variant">© 2024 ARCHITECTURAL PRECISION. ALL RIGHTS RESERVED.</div>
+</div>
+</footer>
+<!-- Floating Action Button (Mobile Only) -->
+<button class="fixed bottom-gutter right-gutter bg-[#007AFF] text-white p-4 md:hidden z-50 border border-transparent hover:bg-transparent hover:border-[#007AFF] hover:text-[#007AFF] mechanical-transition shadow-none">
+<span class="material-symbols-outlined block">mail</span>
+</button>
+<script>
+        // Intersection Observer for scroll animations
+        document.addEventListener('DOMContentLoaded', () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px"
+            });
+
+            document.querySelectorAll('.fade-in-up').forEach((el) => {
+                observer.observe(el);
+            });
+        });
+    </script>
+</body></html>
